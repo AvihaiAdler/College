@@ -9,7 +9,10 @@
 class Course
 {
 private:
-	//Physical & Logical valuses. If you pass in a high value make sure you initialize all the values or at least assign the to nullptr
+	//Physical value:
+	int studentsCapacity;
+
+	//Logical value:
 	int studentsSize;
 
     char* courseName;
@@ -46,8 +49,11 @@ public:
 	bool addStudent(Student* student);
 	bool deleteStudent(char* id);		//don't forget to update studentsSize
 
-	void printDetails();
+	const void printDetails() const;
 	~Course();
+
+private:
+	bool resizeStudents();
 };
 
 #endif // !__COURSE_H

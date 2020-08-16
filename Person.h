@@ -16,16 +16,16 @@ private:
 	Address address;
 
 public:
-	const char* getId() const;		// all func should look like that
-	char* getFullName();
-	int getAge();
-	char* getPhoneNumber();
+	const char* getId() const;		
+	const char* getFullName() const;
+	const int getAge() const;
+	const char* getPhoneNumber() const;
 
 	bool setFullName(char* fullName);
 	bool setAge(int age);
 	bool setPhoneNumber(char* phoneNumber);
 
-	void printDetails();
+	const void printDetails() const;
 
 private:
 	bool setId(char* id);

@@ -10,13 +10,13 @@ private:
 	int num_of_workstations;
 
 public:
-	char* getName();
-	int getNumOfWorkstations();
+	const char* getName() const;
+	const int getNumOfWorkstations() const;
 
 	bool setName(char* name);
 	bool setNumOfWorkstations(int numOfWorkStations);
 
-	void printDetails();
+	const void printDetails() const;
 
 };
 #endif 

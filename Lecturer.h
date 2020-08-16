@@ -6,7 +6,7 @@
 class Lecturer : public EducationStaff
 {
 public:
-	void printDetails();
+	const void printDetails() const;
 };
 
 #endif

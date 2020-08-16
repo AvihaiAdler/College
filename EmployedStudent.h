@@ -7,7 +7,7 @@
 class EmployedStudent : public Student, public Worker
 {
 public:
-	void printDetails();
+	const void printDetails() const;
 };
 
 #endif // !__EMPLOYED_STUDENT_H

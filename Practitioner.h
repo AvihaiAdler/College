@@ -13,7 +13,7 @@ public:
 	
 	bool setResponsibleLectorer(Lecturer* lecturer);
 
-	void printDetails();
+	const void printDetails() const;
 };
 
 #endif // !__PRACTITIONER_H
