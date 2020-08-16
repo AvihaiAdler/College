@@ -6,22 +6,22 @@
 class Worker : public Person
 {
 private:
-	enum class Role { lectorer, practitioner, janitor, adminstration_stuff, hw_grader, IT };
+	enum class eRole { lectorer, practitioner, janitor, adminstration_stuff, hw_grader, IT };
 	int workerId;
-	Role role;
+	eRole role;
 	double salary, seniority;
 
 public:
-	int getWorkerId();
-	Role getRole();
-	double getSalary();
-	double getSeniority();
+	const int getWorkerId() const;
+	const eRole getRole() const;
+	const double getSalary() const;
+	const double getSeniority() const;
 
-	bool setRole(Role role);
+	bool setRole(eRole role);
 	bool setSalary(double salary);
 	bool setSeniority(double seniority);
 
-	void printDetails();
+	const void printDetails() const;
 
 private:
 	bool setWorkerId(int workerId);

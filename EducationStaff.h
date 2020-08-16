@@ -9,13 +9,19 @@ class Course;
 class EducationStaff : public Worker
 {
 private:
+	//Physical value:
+	int coursesCapacity;
+
+	//Logical value:
+	int coursesSize;
+
 	char** degreeTitles;
-	Department* department;
+	Department* department;		//Assuming every EducationStaff teach only in 1 Department
 	Course** courses;
 
 public:
-	EducationStaff(char** degreeTitles, Department* department, Course** courses);
-	char** getDegreeTitles();
+	const int getCoursesSize() const;
+	const char** getDegreeTitles() const;
 	Department* getDepartment();
 	Course** getCoursesList();
 
@@ -30,8 +36,11 @@ public:
 	bool addCourse(Course* course);
 	bool deleteCourse(int id);
 
-	void printDetails();
+	const void printDetails() const;
 	~EducationStaff();
+
+private:
+	bool resizeCourses();
 };
 
 #endif // !__COURSESAFF_H

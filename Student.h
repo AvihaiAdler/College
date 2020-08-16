@@ -8,16 +8,30 @@ class Course course;
 class Student : public Person
 {
 private:
+	/*Physical size:*/
+	int pastCoursesCapacity;
+	int presentCoursesCapacity;
+	int futureCoursesCapacity;
+
+	/*Logical size:*/
+	int pastCoursesSize;
+	int presentCoursesSize;
+	int futureCoursesSize;
+
 	Department* department;
 	Course** pastCourses, **presentCourses, **futureCourses;
 	double average;
 
 public:
+	const int getPastCoursesSize() const;
+	const int getPresentcoursesSize() const;
+	const int getFutureCoursesSize();
+
 	Department* getDepartment();
 	Course** getPassedCourses();
 	Course** getPresentCourses();
 	Course** getFutureCourses();
-	double getAverage();
+	const double getAverage() const;
 
 	bool setDepartment(Department* department);
 	bool setPastCourses(Course** pastCourses);
@@ -27,7 +41,7 @@ public:
 	bool addCourse(Course** coursesList, Course* course);    
 	bool deleteCourse(Course** coursesList, int id);
 
-	void printDetails();
+	const void printDetails() const;
 
 private:
 	double calculateAverage();

@@ -6,26 +6,43 @@
 class Department
 {
 private:
-	enum class DepartmentName {electrical_engineering, mechanical_engineering, software_engineering, medical_engineering};
-	DepartmentName name;
+	enum class eDepartmentName {electrical_engineering, mechanical_engineering, software_engineering, medical_engineering};
+	eDepartmentName name;
+
+	/*Physical values:*/
+	int coursesCapacity;
+	int lecturersCapacity;
+	int practitionersCapacity;
+	int studentsCapapcity;
+
+	/*Logical values:*/
+	int coursesSize;
+	int lecturersSize;
+	int pracitionersSize;
+	int studentsSize;
+
 	int id;
-	Course* courses;			//Course cannot be outside Department (array of class Courses)
+	Course* courses;			//Course cannot live outside Department (array of class Courses)
 	Lecturer* headOfDepartment;
 	Lecturer** lecturers;
 	Practitioner** practitioners;
 	Student** students;	
 
 public:
-	Department(DepartmentName name, int coursesSize, Lecturer* headOfDepartment, Lecturer** lecturers, Practitioner** practitioners, Student** students);
-	DepartmentName getDepartmentName();
-	int getId();
+	const int getCoursesSize() const;
+	const int getLecturersSize() const;
+	const int getPractitionersSize() const;
+	const int getStudentsSize() const;
+
+	const eDepartmentName getDepartmentName() const;
+	const int getId() const;
 	Course* getCourses();
 	Lecturer* getHeadOfDepartment();	
 	Lecturer** getLecturersList();
 	Practitioner** getPractitionersList();
 	Student** getStudentsList();
 
-	bool setName(DepartmentName name);
+	bool setName(eDepartmentName name);
 	bool setHeadOfDepartment(Lecturer* lecturer);
 	bool setCoursesList(Course* courses);
 	bool setLecturersList(Lecturer** lecturers);
@@ -52,11 +69,15 @@ public:
 	Course** getMandatoryCourses();
 	Course** getOptionalCourses();
 
-	void printDetails();
+	const void printDetails() const;
 	~Department();
 
 private:
 	bool setId(int id);
+	bool resizeCourses();
+	bool resizeLecturers();
+	bool resizePractitioners();
+	bool resizeStudents();
 };
 
 

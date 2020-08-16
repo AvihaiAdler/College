@@ -9,8 +9,15 @@ const int PHONE_NUMBER_LENGTH = 10;
 class College
 {
 private:	
-	/*Physical & Logical valuses. If you pass in a high value make sure you initialize all the values or at least assign the to nullptr
-	While using deleteDepratment for example or any other delete methods don't forget to upadte the respective size*/
+	/*Physical values: When using resizeDepartment or any other resize method don't forget to update the respective capacity*/
+	int departmentsCapacity;
+	int workersCapacity;
+	int lecturersCapacity;
+	int practitionersCapacity;
+	int studentsCapacity;
+	int roomsCapacity;
+
+	/*Logical Values: When using deleteDepratment for example or any other delete methods don't forget to upadte the respective size*/
 	int departmentsSize;			
 	int workersSize;				
 	int lecturersSize;
@@ -55,29 +62,29 @@ public:
 	bool setStudentsList(Student** students);
 	bool setRoomsList(Room* rooms);
 
-	const Department& getDepartment(char* name) const;
-	const Department& getDepartment(int departmentId) const;
+	Department& getDepartment(char* name);
+	Department& getDepartment(int departmentId);
 	bool addDepartment(Department department);					
 	bool deleteDepartment(int id);					
 
-	const Worker* getWorker(char* name) const;		//without const maybe? we might want to allow changes on Worker*
-	const Worker* getWorker(int id) const;
+	Worker* getWorker(char* name) ;		
+	Worker* getWorker(int id) ;
 	bool addWorker(Worker* worker);
 	bool deleteWorker(int id);
 
-	const Lecturer* getLecturer(char* id) const;	//without const maybe? we might want to allow changes on Lecturer*
+	Lecturer* getLecturer(char* id);	
 	bool addLecturer(Lecturer* lecturer);			//This method should add the Lecturer to Lecturer** and to Worker**
 	bool deleteLecturer(char* id);					//This method should delete the Lecturer from Lecturer** and from Worker**
 
-	const Practitioner* getPractitioner(char* id) const;	//without const maybe? we might want to allow changes on Practitioner*
+	Practitioner* getPractitioner(char* id);	
 	bool addPractitioner(Practitioner* practitioner);		//This method should add the Practitioner to Practitioner** and to Worker**
 	bool deletePractitioner(char* id);						//This method should delete the Practitoner from Practitioner** and from Worker**
 
-	const Student* getStudent(char* id) const;		//without const maybe? we might want to allow changes on Student*
+	Student* getStudent(char* id);		
 	bool addStudent(Student* student);
 	bool deleteStudent(char* id);
 
-	const Room* getRoom(int roomNumber) const;		//without const maybe? we might want to allow changes on Room*	
+	Room* getRoom(int roomNumber);		
 	bool addRoom(Room room);
 	bool deleteRoom(int roomNumber);
 
@@ -86,12 +93,12 @@ public:
 
 private:
 	//Don't forget to increament the respective size by 1 and delete[] the old list -- there's no set*Size() it's your responsibility to manage *Size
-	bool resizedepartmentList(Department department);
-	bool resizeWorkersList(Worker* worker);
-	bool resizeLecturersList(Lecturer* lecturer);
-	bool resizePractitonersList(Practitioner* practitioner);
-	bool resizeStudentsList(Student* student);
-	bool resizeRooms(Room room);
+	bool resizedepartmentList();
+	bool resizeWorkersList();
+	bool resizeLecturersList();
+	bool resizePractitonersList();
+	bool resizeStudentsList();
+	bool resizeRooms();
 };
 
 #endif

@@ -4,21 +4,20 @@
 class Room
 {
 private:
-	enum class RoomType { regular_class, lab, auditorium };
+	enum class eRoomType { regular_class, lab, auditorium };
 	int roomNumber, num_of_seats;
-	RoomType roomType;
+	eRoomType roomType;
 
 public:
-	Room(RoomType type, int number, int num_of_seats);
-	int getRoomNUmber();
-	int getNumOfSeats();
-	RoomType getRoomType();
+	const int getRoomNUmber() const;
+	const int getNumOfSeats() const;
+	const eRoomType getRoomType() const;
 
 	bool setRoomNumber(int roomNumber);
 	bool setNumOfSeats(int num_of_seats);
-	bool setRoomType(RoomType roomType);
+	bool setRoomType(eRoomType roomType);
 
-	void printDetails();
+	const void printDetails() const;
 };
 
 #endif
