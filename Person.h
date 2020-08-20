@@ -35,7 +35,7 @@ public:
 	void printDetails() const;
 
 private:
-	bool setId(char* id);
+	bool setId(const char* id);
 
 };
 
