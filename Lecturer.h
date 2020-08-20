@@ -6,7 +6,12 @@
 class Lecturer : public EducationStaff
 {
 public:
-	const void printDetails() const;
+	Lecturer();
+	Lecturer(const Lecturer& other) = delete;
+	Lecturer(Lecturer&& lecturer);
+	~Lecturer();
+
+	void printDetails() const;
 };
 
 #endif

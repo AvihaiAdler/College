@@ -20,6 +20,11 @@ private:
 	Course** courses;
 
 public:
+	EducationStaff(const char** titles, const Department* department, int coursesSize = 0); //init courseCapacity to an initial value (transparent to the user)
+	EducationStaff(const EducationStaff& other) = delete;
+	EducationStaff(EducationStaff&& staff);
+	~EducationStaff();
+
 	const int getCoursesSize() const;
 	const char** getDegreeTitles() const;
 	Department* getDepartment();
@@ -36,8 +41,7 @@ public:
 	bool addCourse(Course* course);
 	bool deleteCourse(int id);
 
-	const void printDetails() const;
-	~EducationStaff();
+	void printDetails() const;
 
 private:
 	bool resizeCourses();

@@ -25,6 +25,11 @@ private:
 	bool mandatory;
 
 public:
+	Course(const char* courseName, int courseId, double weight, const Lecturer* lecturer, const Practitioner* practitioner, int studentsSize = 0, Room* room = nullptr, bool mandatory = false);		//init capacity (trasparent)
+	Course(const Course& other);
+	Course(Course&& course);
+	~Course();
+
 	const int getStudentsSize() const;
 
 	bool setCourseName(char* name);
@@ -49,8 +54,7 @@ public:
 	bool addStudent(Student* student);
 	bool deleteStudent(char* id);		//don't forget to update studentsSize
 
-	const void printDetails() const;
-	~Course();
+	void printDetails() const;
 
 private:
 	bool resizeStudents();

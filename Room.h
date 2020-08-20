@@ -9,6 +9,11 @@ private:
 	eRoomType roomType;
 
 public:
+	Room(const eRoomType type, int roomNumber, int num_of_seats);
+	Room(Room& other);
+	Room(Room&& room);
+	~Room();
+
 	const int getRoomNUmber() const;
 	const int getNumOfSeats() const;
 	const eRoomType getRoomType() const;
@@ -17,7 +22,7 @@ public:
 	bool setNumOfSeats(int num_of_seats);
 	bool setRoomType(eRoomType roomType);
 
-	const void printDetails() const;
+	void printDetails() const;
 };
 
 #endif

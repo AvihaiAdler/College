@@ -10,15 +10,19 @@ private:
 
 public:
 	Address(char* city, char* street, char* houseNumber);
+	Address(const Address& other);		//copy c'tor
+	Address(Address&& address);		//move c'tor
+	~Address();
+
 	const char* getCity() const;
 	const char* getStreet() const;
 	const int getHouseNumber() const;
 
-	bool setCity(char* city);
-	bool setStreet(char* street);
+	bool setCity(const char* city);
+	bool setStreet(const char* street);
 	bool setHouseNumber(int HouseNumber);
 
-	const void printDetails() const;
+	void printDetails() const;
 };
 
 #endif // !__ADDRESS_H

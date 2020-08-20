@@ -9,11 +9,16 @@ private:
 	Lecturer* resposibleLectorer;
 
 public:
+	Practitioner(const Lecturer* resposibleLectorer);
+	Practitioner(const Practitioner& other) = delete;
+	Practitioner(Practitioner&& practitioner);
+	~Practitioner();
+
 	Lecturer* getResponsibleLectorer();
 	
 	bool setResponsibleLectorer(Lecturer* lecturer);
 
-	const void printDetails() const;
+	void printDetails() const;
 };
 
 #endif // !__PRACTITIONER_H
