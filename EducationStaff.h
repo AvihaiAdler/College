@@ -30,14 +30,14 @@ public:
 	Department* getDepartment();
 	Course** getCoursesList();
 
-	bool setDegreeTitles(char** degreeTitles);
+	bool setDegreeTitles(const char** degreeTitles);
 	bool setDepartment(Department department);
 	bool setCoursesList(Course** courses);
 
 	Course* getCourse(int id);
-	Course* getCourse(char* name);
+	Course* getCourse(const char* name);
 
-	bool addDegreeTitle(char* degreeTitle);
+	bool addDegreeTitle(const char* degreeTitle);
 	bool addCourse(Course* course);
 	bool deleteCourse(int id);
 

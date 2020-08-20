@@ -47,12 +47,12 @@ public:
 	Lecturer* getLectorer();
 	Practitioner* getPratitioner();
 	Student** getStudentsList();
-	Student* getStudent(char* id);
+	Student* getStudent(const char* id);
 	Room* getRoom();
 	bool isMandatory();
 
 	bool addStudent(Student* student);
-	bool deleteStudent(char* id);		//don't forget to update studentsSize
+	bool deleteStudent(const char* id);		//don't forget to update studentsSize
 
 	void printDetails() const;
 

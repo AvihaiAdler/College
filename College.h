@@ -58,35 +58,35 @@ public:
 	const Student** getStudentsList() const;
 	const Room* getRoomsList() const;
 
-	bool setName(char* name);
-	bool setAddress(char* address);
-	bool setPhoneNumber(char* phoneNumber);
+	bool setName(const char* name);
+	bool setAddress(const char* address);
+	bool setPhoneNumber(const char* phoneNumber);
 	bool setDepartmentList(Department* departments);
 	bool setWorkersList(Worker* workers);
 	bool setStudentsList(Student** students);
 	bool setRoomsList(Room* rooms);
 
-	Department& getDepartment(char* name);
+	Department& getDepartment(const char* name);
 	Department& getDepartment(int departmentId);
 	bool addDepartment(Department department);					
 	bool deleteDepartment(int id);					
 
-	Worker* getWorker(char* name) ;		
+	Worker* getWorker(const char* name) ;		
 	Worker* getWorker(int id) ;
 	bool addWorker(Worker* worker);
 	bool deleteWorker(int id);
 
-	Lecturer* getLecturer(char* id);	
+	Lecturer* getLecturer(const char* id);	
 	bool addLecturer(Lecturer* lecturer);			//This method should add the Lecturer to Lecturer** and to Worker**
-	bool deleteLecturer(char* id);					//This method should delete the Lecturer from Lecturer** and from Worker**
+	bool deleteLecturer(const char* id);					//This method should delete the Lecturer from Lecturer** and from Worker**
 
-	Practitioner* getPractitioner(char* id);	
+	Practitioner* getPractitioner(const char* id);	
 	bool addPractitioner(Practitioner* practitioner);		//This method should add the Practitioner to Practitioner** and to Worker**
-	bool deletePractitioner(char* id);						//This method should delete the Practitoner from Practitioner** and from Worker**
+	bool deletePractitioner(const char* id);						//This method should delete the Practitoner from Practitioner** and from Worker**
 
-	Student* getStudent(char* id);		
+	Student* getStudent(const char* id);		
 	bool addStudent(Student* student);
-	bool deleteStudent(char* id);
+	bool deleteStudent(const char* id);
 
 	Room* getRoom(int roomNumber);		
 	bool addRoom(Room room);

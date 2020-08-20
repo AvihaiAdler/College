@@ -47,29 +47,29 @@ public:
 	Practitioner** getPractitionersList();
 	Student** getStudentsList();
 
-	bool setName(eDepartmentName name);
+	bool setName(const eDepartmentName name);
 	bool setHeadOfDepartment(Lecturer* lecturer);
 	bool setCoursesList(Course* courses);
 	bool setLecturersList(Lecturer** lecturers);
 	bool setPractitionersList(Practitioner** practitioners);
 	bool setStudentsList(Student** students);
 
-	Course* getCourse(char* courseName);	
+	Course* getCourse(const char* courseName);	
 	Course* getCourse(int id);
-	Student* getStudent(char* id);
-	Worker* getWorker(char* name);		//-- get to every type
+	Student* getStudent(const char* id);
+	Worker* getWorker(const char* name);		//-- get to every type
 
 	bool addCourse(Course course);
 	bool deleteCourse(int id);
 
 	bool addLecturer(Lecturer* lecturer);
-	bool deleteLecturer(char* id);
+	bool deleteLecturer(const char* id);
 
 	bool addPractitioner(Practitioner* practitioner);
-	bool deletePractitioner(char* id);
+	bool deletePractitioner(const char* id);
 
 	bool addStudent(Student* student);
-	bool deleteStudent(char* id);
+	bool deleteStudent(const char* id);
 
 	Course** getMandatoryCourses();
 	Course** getOptionalCourses();
