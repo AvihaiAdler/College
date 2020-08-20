@@ -29,6 +29,11 @@ private:
 	Student** students;	
 
 public:
+	Department(eDepartmentName name, int id, int coursesSize = 0, int lecturersSize = 0, int pracitionersSize = 0, int studentsSize = 0); //init Capacity - trasparent
+	Department(const Department& other);
+	Department(Department&& department);
+	~Department();
+
 	const int getCoursesSize() const;
 	const int getLecturersSize() const;
 	const int getPractitionersSize() const;
@@ -69,8 +74,7 @@ public:
 	Course** getMandatoryCourses();
 	Course** getOptionalCourses();
 
-	const void printDetails() const;
-	~Department();
+	void printDetails() const;
 
 private:
 	bool setId(int id);

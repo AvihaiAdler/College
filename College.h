@@ -36,7 +36,11 @@ private:
 	Room* rooms;
 	
 public:
-	//College(char* name, Address address, char* phoneNumber, Department* department, Worker** workers, Student** students, Room* room);
+	College(const char* name, const char* phonenumber, const Address& address, int departmentsSize = 0, int workersSize = 0, int lecturersSize = 0, int practitionersSize = 0, int StudentsSize = 0, int roomsSize = 0);	//init Capacity
+	College(College& other);
+	College(College&& college);
+	~College();
+
 	const int getDepartmentsSize() const;
 	const int getWorkersSize() const;
 	const int getLecturersSize() const;
@@ -88,8 +92,7 @@ public:
 	bool addRoom(Room room);
 	bool deleteRoom(int roomNumber);
 
-	const void printDetails() const;
-	~College();
+	void printDetails() const;
 
 private:
 	//Don't forget to increament the respective size by 1 and delete[] the old list -- there's no set*Size() it's your responsibility to manage *Size

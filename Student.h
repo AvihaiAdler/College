@@ -23,9 +23,14 @@ private:
 	double average;
 
 public:
+	Student(const Department* department, int pastCoursesSize = 0, int presentCoursesSize = 0, int futureCoursesSize = 0); //init all physical sizes (transparent to the user)
+	Student(const Student& other) = delete;
+	Student(Student&& student);
+	~Student();
+
 	const int getPastCoursesSize() const;
 	const int getPresentcoursesSize() const;
-	const int getFutureCoursesSize();
+	const int getFutureCoursesSize() const;
 
 	Department* getDepartment();
 	Course** getPassedCourses();
@@ -41,7 +46,7 @@ public:
 	bool addCourse(Course** coursesList, Course* course);    
 	bool deleteCourse(Course** coursesList, int id);
 
-	const void printDetails() const;
+	void printDetails() const;
 
 private:
 	double calculateAverage();

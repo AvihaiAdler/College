@@ -7,7 +7,12 @@
 class EmployedStudent : public Student, public Worker
 {
 public:
-	const void printDetails() const;
+	EmployedStudent();
+	EmployedStudent(const EmployedStudent& other) = delete;
+	EmployedStudent(EmployedStudent&& employedStudent);
+	~EmployedStudent();
+
+	void printDetails() const;
 };
 
 #endif // !__EMPLOYED_STUDENT_H
