@@ -51,12 +51,12 @@ public:
 	const char* getName() const;
 	const Address& getAddress() const;	
 	const char* getPhoneNumber() const;
-	const Department* getDepartmentsList() const;
-	const Worker** getWorkersList() const;
-	const Lecturer** getLecturersList() const;
-	const Practitioner** getPractitionersList() const;
-	const Student** getStudentsList() const;
-	const Room* getRoomsList() const;
+	Department* const getDepartmentsList() const;
+	Worker*const* const getWorkersList() const;
+	Lecturer*const* const getLecturersList() const;
+	Practitioner*const* const getPractitionersList() const;
+	Student*const* const getStudentsList() const;
+	Room* const getRoomsList() const;
 
 	bool setName(const char* name);
 	bool setAddress(const char* address);
@@ -71,24 +71,24 @@ public:
 	bool addDepartment(Department department);					
 	bool deleteDepartment(int id);					
 
-	Worker* getWorker(const char* name) ;		
-	Worker* getWorker(int id) ;
+	Worker& getWorker(const char* name) ;		
+	Worker& getWorker(int id) ;
 	bool addWorker(Worker* worker);
 	bool deleteWorker(int id);
 
-	Lecturer* getLecturer(const char* id);	
+	Lecturer& getLecturer(const char* id);	
 	bool addLecturer(Lecturer* lecturer);			//This method should add the Lecturer to Lecturer** and to Worker**
 	bool deleteLecturer(const char* id);					//This method should delete the Lecturer from Lecturer** and from Worker**
 
-	Practitioner* getPractitioner(const char* id);	
+	Practitioner& getPractitioner(const char* id);	
 	bool addPractitioner(Practitioner* practitioner);		//This method should add the Practitioner to Practitioner** and to Worker**
 	bool deletePractitioner(const char* id);						//This method should delete the Practitoner from Practitioner** and from Worker**
 
-	Student* getStudent(const char* id);		
+	Student& getStudent(const char* id);		
 	bool addStudent(Student* student);
 	bool deleteStudent(const char* id);
 
-	Room* getRoom(int roomNumber);		
+	Room& getRoom(int roomNumber);		
 	bool addRoom(Room room);
 	bool deleteRoom(int roomNumber);
 

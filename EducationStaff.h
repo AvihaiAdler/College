@@ -27,15 +27,15 @@ public:
 
 	const int getCoursesSize() const;
 	const char** getDegreeTitles() const;
-	Department* getDepartment();
-	Course** getCoursesList();
+	Department* const getDepartment();
+	Course*const* const getCoursesList();
 
 	bool setDegreeTitles(const char** degreeTitles);
 	bool setDepartment(Department department);
 	bool setCoursesList(Course** courses);
 
-	Course* getCourse(int id);
-	Course* getCourse(const char* name);
+	Course* const getCourse(int id);
+	Course* const getCourse(const char* name);
 
 	bool addDegreeTitle(const char* degreeTitle);
 	bool addCourse(Course* course);

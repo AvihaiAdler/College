@@ -18,7 +18,7 @@ private:
     char* courseName;
     int courseId;
     double weight;
-    Lecturer* lecturer;					//assuming 1 lecturer per course
+    Lecturer* lecturer;					//a pointer to 1 Lecturer - assuming 1 lecturer per course
 	Practitioner* practitioner;
 	Student** students;
 	Room* room;
@@ -44,11 +44,11 @@ public:
 	const char* getCourseName() const;
 	const int getCourseId() const;
 	const double getWeight() const;
-	Lecturer* getLectorer();
-	Practitioner* getPratitioner();
-	Student** getStudentsList();
-	Student* getStudent(const char* id);
-	Room* getRoom();
+	Lecturer* const getLectorer();
+	Practitioner* const getPratitioner();
+	Student*const* const getStudentsList();
+	Student* const getStudent(const char* id);
+	Room* const getRoom();
 	bool isMandatory();
 
 	bool addStudent(Student* student);

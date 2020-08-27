@@ -32,10 +32,10 @@ public:
 	const int getPresentcoursesSize() const;
 	const int getFutureCoursesSize() const;
 
-	Department* getDepartment();
-	Course** getPassedCourses();
-	Course** getPresentCourses();
-	Course** getFutureCourses();
+	Department* const getDepartment();
+	Course*const* const getPassedCourses();
+	Course*const* const getPresentCourses();
+	Course*const* const getFutureCourses();
 	const double getAverage() const;
 
 	bool setDepartment(Department* department);

@@ -14,7 +14,7 @@ public:
 	Practitioner(Practitioner&& practitioner);
 	~Practitioner();
 
-	Lecturer* getResponsibleLectorer();
+	Lecturer* const getResponsibleLectorer();
 	
 	bool setResponsibleLectorer(Lecturer* lecturer);
 
