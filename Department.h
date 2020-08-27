@@ -41,11 +41,11 @@ public:
 
 	const eDepartmentName getDepartmentName() const;
 	const int getId() const;
-	Course* getCourses();
-	Lecturer* getHeadOfDepartment();	
-	Lecturer** getLecturersList();
-	Practitioner** getPractitionersList();
-	Student** getStudentsList();
+	Course* const getCourses();
+	Lecturer* const getHeadOfDepartment();	
+	Lecturer*const* const getLecturersList();
+	Practitioner*const* const getPractitionersList();
+	Student*const* const getStudentsList();
 
 	bool setName(const eDepartmentName name);
 	bool setHeadOfDepartment(Lecturer* lecturer);
@@ -54,10 +54,10 @@ public:
 	bool setPractitionersList(Practitioner** practitioners);
 	bool setStudentsList(Student** students);
 
-	Course* getCourse(const char* courseName);	
-	Course* getCourse(int id);
-	Student* getStudent(const char* id);
-	Worker* getWorker(const char* name);		//-- get to every type
+	Course* const getCourse(const char* courseName);	
+	Course* const getCourse(int id);
+	Student* const getStudent(const char* id);
+	Worker* const getWorker(const char* name);		//-- get to every type
 
 	bool addCourse(Course course);
 	bool deleteCourse(int id);
@@ -71,8 +71,8 @@ public:
 	bool addStudent(Student* student);
 	bool deleteStudent(const char* id);
 
-	Course** getMandatoryCourses();
-	Course** getOptionalCourses();
+	Course*const* const getMandatoryCourses();
+	Course*const* const getOptionalCourses();
 
 	void printDetails() const;
 
