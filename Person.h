@@ -4,7 +4,7 @@
 #include "Address.h"
 
 const int ID_LENGTH = 9;
-const int PHONE_NUMBER_LENGTH = 10;
+const int PHONE_NUMBER_SIZE = 10;
 
 class Person 
 {
@@ -12,7 +12,7 @@ private:
 	char id[ID_LENGTH];
 	char* fullName;
 	int age;
-	char phoneNumber[PHONE_NUMBER_LENGTH];
+	char phoneNumber[PHONE_NUMBER_SIZE];
 	Address address;
 
 public:
@@ -32,7 +32,10 @@ public:
 	bool setPhoneNumber(const char* phoneNumber);
 	bool setAddress(const Address& address);
 
-	void printDetails() const;
+	const Person& operator=(const Person& other);
+	bool operator==(const Person& other);
+	bool operator!=(const Person& other);
+	friend std::ostream& operator<<(std::ostream& o, const Person& person);
 
 private:
 	bool setId(const char* id);

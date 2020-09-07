@@ -54,7 +54,11 @@ public:
 	bool addStudent(Student* student);
 	bool deleteStudent(const char* id);		//don't forget to update studentsSize
 
-	void printDetails() const;
+	const Course& operator=(const Course& other);
+	void operator+(const Student& student);
+	void operator-(const Student& student);
+	const Student& operator[](const int studentId) const;
+	friend std::ostream& operator<<(std::ostream& o, const Course& course);
 
 private:
 	bool resizeStudents();

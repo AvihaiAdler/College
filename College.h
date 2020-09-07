@@ -41,7 +41,7 @@ public:
 	College(College&& college);
 	~College();
 
-	const int getDepartmentsSize() const;
+	int getDepartmentsSize() const;	//value don't have to return const
 	const int getWorkersSize() const;
 	const int getLecturersSize() const;
 	const int getPractitionersSize() const;
@@ -61,10 +61,10 @@ public:
 	bool setName(const char* name);
 	bool setAddress(const char* address);
 	bool setPhoneNumber(const char* phoneNumber);
-	bool setDepartmentList(Department* departments);
-	bool setWorkersList(Worker* workers);
-	bool setStudentsList(Student** students);
-	bool setRoomsList(Room* rooms);
+	//bool setDepartmentList(Department* departments);
+	//bool setWorkersList(Worker* workers);
+	//bool setStudentsList(Student** students);
+	//bool setRoomsList(Room* rooms);
 
 	Department& getDepartment(const char* name);
 	Department& getDepartment(int departmentId);
@@ -77,11 +77,11 @@ public:
 	bool deleteWorker(int id);
 
 	Lecturer& getLecturer(const char* id);	
-	bool addLecturer(Lecturer* lecturer);			//This method should add the Lecturer to Lecturer** and to Worker**
+	bool addLecturer(Lecturer* lecturer);					//This method should add the Lecturer to Lecturer** and to Worker**
 	bool deleteLecturer(const char* id);					//This method should delete the Lecturer from Lecturer** and from Worker**
 
 	Practitioner& getPractitioner(const char* id);	
-	bool addPractitioner(Practitioner* practitioner);		//This method should add the Practitioner to Practitioner** and to Worker**
+	bool addPractitioner(Practitioner& practitioner);				//This method should add the Practitioner to Practitioner** and to Worker**
 	bool deletePractitioner(const char* id);						//This method should delete the Practitoner from Practitioner** and from Worker**
 
 	Student& getStudent(const char* id);		
@@ -92,7 +92,8 @@ public:
 	bool addRoom(Room room);
 	bool deleteRoom(int roomNumber);
 
-	void printDetails() const;
+	const College& operator=(const College& other);
+	friend std::ostream& operator<<(std::ostream& o, const College& college);
 
 private:
 	//Don't forget to increament the respective size by 1 and delete[] the old list -- there's no set*Size() it's your responsibility to manage *Size

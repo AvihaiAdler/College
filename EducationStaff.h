@@ -41,7 +41,8 @@ public:
 	bool addCourse(Course* course);
 	bool deleteCourse(int id);
 
-	void printDetails() const;
+	const EducationStaff& operator=(const EducationStaff& other);
+	friend std::ostream& operator<<(std::ostream& o, const EducationStaff& staff);
 
 private:
 	bool resizeCourses();

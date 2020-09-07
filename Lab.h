@@ -21,7 +21,8 @@ public:
 	bool setName(char* name);
 	bool setNumOfWorkstations(int numOfWorkStations);
 
-	void printDetails() const;
+	const Lab& operator=(const Lab& other);
+	friend std::ostream& operator<<(std::ostream& o, const Lab& lab);
 
 };
 #endif 
