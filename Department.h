@@ -74,7 +74,10 @@ public:
 	Course*const* const getMandatoryCourses();
 	Course*const* const getOptionalCourses();
 
-	void printDetails() const;
+	const Department& operator=(const Department& other);
+	const Course& operator[](int courseId) const;
+	const Course& operator[](const char* courseName) const;
+	friend std::ostream& operator<<(std::ostream& o, const Department& other);
 
 private:
 	bool setId(int id);

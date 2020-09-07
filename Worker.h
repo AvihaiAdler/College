@@ -12,7 +12,7 @@ private:
 	double salary, seniority;
 
 public:
-	Worker(const eRole& role, int workerId, double salary, double seniority, Person& person/*?? move c'tor. Is it syntax correct?*/); // : Person(person.getId(), person.getFullName(), person.getAge(), person.getPhoneNumber(), person.getAddress());	
+	Worker(const eRole& role, int workerId, double salary, double seniority);
 	Worker(const Worker& other) = delete;
 	Worker(Worker&& worker);
 	~Worker();
@@ -26,7 +26,8 @@ public:
 	bool setSalary(double salary);
 	bool setSeniority(double seniority);
 
-	void printDetails() const;
+	const Worker& operator=(const Worker& other);
+	friend std::ostream& operator<<(std::ostream& o, const Worker& worker);
 
 private:
 	bool setWorkerId(int workerId);

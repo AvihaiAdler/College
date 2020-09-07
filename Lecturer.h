@@ -1,5 +1,5 @@
-#ifndef __LECTORER_H
-#define __LECTORER_H
+#ifndef __LECTURER_H
+#define __LECTURER_H
 
 #include "EducationStaff.h"
 
@@ -11,7 +11,7 @@ public:
 	Lecturer(Lecturer&& lecturer);
 	~Lecturer();
 
-	void printDetails() const;
+	friend std::ostream& operator<<(std::ostream& o, const Lecturer& lecturer);
 };
 
 #endif

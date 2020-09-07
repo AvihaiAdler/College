@@ -22,7 +22,8 @@ public:
 	bool setNumOfSeats(int num_of_seats);
 	bool setRoomType(eRoomType roomType);
 
-	void printDetails() const;
+	const Room& operator=(const Room& other);
+	friend std::ostream& operator<<(std::ostream& o, const Room& other);
 };
 
 #endif

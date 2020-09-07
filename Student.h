@@ -3,7 +3,8 @@
 
 #include "Person.h"
 
-class Course course;
+class Course;
+class Department;
 
 class Student : public Person
 {
@@ -43,10 +44,13 @@ public:
 	bool setPresentCourses(Course** presentCourses);
 	bool setFutureCourses(Course** futureCourses);
 
-	bool addCourse(Course** coursesList, Course* course);    
-	bool deleteCourse(Course** coursesList, int id);
+/*	bool addCourse(Course** coursesList, Course* course);    
+	bool deleteCourse(Course** coursesList, int id);	*/	
 
-	void printDetails() const;
+	const Student& operator=(const Student& other);
+	bool operator==(const Student& other);
+	bool operator!=(const Student& other);
+	friend std::ostream& operator<<(std::ostream& o, const Student& student);
 
 private:
 	double calculateAverage();

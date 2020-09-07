@@ -6,13 +6,16 @@
 
 class EmployedStudent : public Student, public Worker
 {
+private:
+	int pointsDischarge;
+
 public:
-	EmployedStudent();
+	EmployedStudent(int points);
 	EmployedStudent(const EmployedStudent& other) = delete;
 	EmployedStudent(EmployedStudent&& employedStudent);
 	~EmployedStudent();
 
-	void printDetails() const;
+	friend std::ostream& operator<<(std::ostream& o, const EmployedStudent& eStudent);
 };
 
 #endif // !__EMPLOYED_STUDENT_H
