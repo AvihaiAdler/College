@@ -28,12 +28,12 @@ private:
 	char* name;
 	char phoneNumber[PHONE_NUMBER_LENGTH];
 	Address address;
-	Department* deparments;		
-	Worker** workers;			
-	Lecturer** lecturers;
-	Practitioner** practitioners;
-	Student** students;
-	Room* rooms;
+	Department* deparments;				//array of Departments 
+	Worker** workers;					//array of workers
+	Lecturer** lecturers;				//array of Lecturers 
+	Practitioner** practitioners;		//array of Practitioners
+	Student** students;					//array of Students
+	Room* rooms;						//array of Rooms
 	
 public:
 	College(const char* name, const char* phonenumber, const Address& address, int departmentsSize = 0, int workersSize = 0, int lecturersSize = 0, int practitionersSize = 0, int StudentsSize = 0, int roomsSize = 0);	//init Capacity
@@ -42,11 +42,11 @@ public:
 	~College();
 
 	int getDepartmentsSize() const;	//value don't have to return const
-	const int getWorkersSize() const;
-	const int getLecturersSize() const;
-	const int getPractitionersSize() const;
-	const int getStudentsSize() const;
-	const int getRoomsSize() const;
+	int getWorkersSize() const;
+	int getLecturersSize() const;
+	int getPractitionersSize() const;
+	int getStudentsSize() const;
+	int getRoomsSize() const;
 	
 	const char* getName() const;
 	const Address& getAddress() const;	
@@ -61,35 +61,31 @@ public:
 	bool setName(const char* name);
 	bool setAddress(const char* address);
 	bool setPhoneNumber(const char* phoneNumber);
-	//bool setDepartmentList(Department* departments);
-	//bool setWorkersList(Worker* workers);
-	//bool setStudentsList(Student** students);
-	//bool setRoomsList(Room* rooms);
 
 	Department& getDepartment(const char* name);
 	Department& getDepartment(int departmentId);
-	bool addDepartment(Department department);					
+	bool addDepartment(const Department& department);					
 	bool deleteDepartment(int id);					
 
 	Worker& getWorker(const char* name) ;		
 	Worker& getWorker(int id) ;
-	bool addWorker(Worker* worker);
+	bool addWorker(const Worker& worker);
 	bool deleteWorker(int id);
 
 	Lecturer& getLecturer(const char* id);	
-	bool addLecturer(Lecturer* lecturer);					//This method should add the Lecturer to Lecturer** and to Worker**
+	bool addLecturer(const Lecturer& lecturer);					//This method should add the Lecturer to Lecturer** and to Worker**
 	bool deleteLecturer(const char* id);					//This method should delete the Lecturer from Lecturer** and from Worker**
 
 	Practitioner& getPractitioner(const char* id);	
-	bool addPractitioner(Practitioner& practitioner);				//This method should add the Practitioner to Practitioner** and to Worker**
+	bool addPractitioner(const Practitioner& practitioner);				//This method should add the Practitioner to Practitioner** and to Worker**
 	bool deletePractitioner(const char* id);						//This method should delete the Practitoner from Practitioner** and from Worker**
 
 	Student& getStudent(const char* id);		
-	bool addStudent(Student* student);
+	bool addStudent(const Student& student);
 	bool deleteStudent(const char* id);
 
 	Room& getRoom(int roomNumber);		
-	bool addRoom(Room room);
+	bool addRoom(const Room& room);
 	bool deleteRoom(int roomNumber);
 
 	const College& operator=(const College& other);

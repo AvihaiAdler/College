@@ -19,11 +19,11 @@ public:
 	Person(const char* id, const char* fullName, int age, const char* phoneNumber, const Address& address);
 	Person(const Person& person) = delete;
 	Person(Person&& porson);
-	~Person();
+	virtual ~Person();
 
 	const char* getId() const;		
 	const char* getFullName() const;
-	const int getAge() const;
+	int getAge() const;
 	const char* getPhoneNumber() const;
 	const Address& getAddress() const;
 
@@ -32,7 +32,7 @@ public:
 	bool setPhoneNumber(const char* phoneNumber);
 	bool setAddress(const Address& address);
 
-	const Person& operator=(const Person& other);
+	virtual const Person& operator=(const Person& other);
 	bool operator==(const Person& other);
 	bool operator!=(const Person& other);
 	friend std::ostream& operator<<(std::ostream& o, const Person& person);

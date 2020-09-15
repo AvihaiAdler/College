@@ -15,22 +15,22 @@ private:
 	//Logical value:
 	int coursesSize;
 
-	char** degreeTitles;
-	Department* department;		//Assuming every EducationStaff teach only in 1 Department
-	Course** courses;
+	char** degreeTitles;		//array of degrees (if any)
+	Department* department;		//Assuming every EducationStaff teach only in 1 Department - a apointer
+	Course** courses;			//array of courses the stuff member teaching 
 
 public:
-	EducationStaff(const char** titles, const Department* department, int coursesSize = 0); //init courseCapacity to an initial value (transparent to the user)
+	EducationStaff(const Worker& worker, const char* title, const Department* department, int coursesSize = 0); //init courseCapacity to an initial value (transparent to the user)
 	EducationStaff(const EducationStaff& other) = delete;
 	EducationStaff(EducationStaff&& staff);
-	~EducationStaff();
+	virtual ~EducationStaff();
 
-	const int getCoursesSize() const;
-	const char** getDegreeTitles() const;
+	int getCoursesSize() const;
+	const char* getDegreeTitles() const;
 	Department* const getDepartment();
 	Course*const* const getCoursesList();
 
-	bool setDegreeTitles(const char** degreeTitles);
+	bool setDegreeTitles(const char* degreeTitles);
 	bool setDepartment(Department department);
 	bool setCoursesList(Course** courses);
 
@@ -41,7 +41,7 @@ public:
 	bool addCourse(Course* course);
 	bool deleteCourse(int id);
 
-	const EducationStaff& operator=(const EducationStaff& other);
+	virtual const EducationStaff& operator=(const EducationStaff& other);
 	friend std::ostream& operator<<(std::ostream& o, const EducationStaff& staff);
 
 private:

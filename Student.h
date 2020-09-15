@@ -19,25 +19,25 @@ private:
 	int presentCoursesSize;
 	int futureCoursesSize;
 
-	Department* department;
-	Course** pastCourses, **presentCourses, **futureCourses;
+	Department* department;										//a pointer to the department the student attend
+	Course** pastCourses, **presentCourses, **futureCourses;	//array of courses
 	double average;
 
 public:
-	Student(const Department* department, int pastCoursesSize = 0, int presentCoursesSize = 0, int futureCoursesSize = 0); //init all physical sizes (transparent to the user)
+	Student(const Person& person, Department* department, int pastCoursesSize = 0, int presentCoursesSize = 0, int futureCoursesSize = 0); //init all physical sizes (transparent to the user)
 	Student(const Student& other) = delete;
 	Student(Student&& student);
 	~Student();
 
-	const int getPastCoursesSize() const;
-	const int getPresentcoursesSize() const;
-	const int getFutureCoursesSize() const;
+	int getPastCoursesSize() const;
+	int getPresentcoursesSize() const;
+	int getFutureCoursesSize() const;
 
 	Department* const getDepartment();
 	Course*const* const getPassedCourses();
 	Course*const* const getPresentCourses();
 	Course*const* const getFutureCourses();
-	const double getAverage() const;
+	double getAverage() const;
 
 	bool setDepartment(Department* department);
 	bool setPastCourses(Course** pastCourses);
@@ -47,7 +47,7 @@ public:
 /*	bool addCourse(Course** coursesList, Course* course);    
 	bool deleteCourse(Course** coursesList, int id);	*/	
 
-	const Student& operator=(const Student& other);
+	virtual const Student& operator=(const Student& other);
 	bool operator==(const Student& other);
 	bool operator!=(const Student& other);
 	friend std::ostream& operator<<(std::ostream& o, const Student& student);

@@ -5,28 +5,29 @@
 
 class Worker : public Person
 {
-private:
+public:
 	enum class eRole { lectorer, practitioner, janitor, adminstration_stuff, hw_grader, IT };
+private:
 	int workerId;
 	eRole role;
 	double salary, seniority;
 
 public:
-	Worker(const eRole& role, int workerId, double salary, double seniority);
+	Worker(const Person& person, const eRole& role, int workerId, double salary, double seniority);
 	Worker(const Worker& other) = delete;
 	Worker(Worker&& worker);
-	~Worker();
+	virtual ~Worker();
 
-	const int getWorkerId() const;
+	int getWorkerId() const;
 	const eRole getRole() const;
-	const double getSalary() const;
-	const double getSeniority() const;
+	double getSalary() const;
+	double getSeniority() const;
 
 	bool setRole(eRole role);
 	bool setSalary(double salary);
 	bool setSeniority(double seniority);
 
-	const Worker& operator=(const Worker& other);
+	virtual const Worker& operator=(const Worker& other);
 	friend std::ostream& operator<<(std::ostream& o, const Worker& worker);
 
 private:

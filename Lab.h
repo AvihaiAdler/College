@@ -10,13 +10,13 @@ private:
 	int num_of_workstations;
 
 public:
-	Lab(const char* name, int num_of_workStation);
+	Lab(const Room& room, char* name, int num_of_workStation);
 	Lab(Lab& other);
 	Lab(Lab&& lab);
 	~Lab();
 
 	const char* getName() const;
-	const int getNumOfWorkstations() const;
+	int getNumOfWorkstations() const;
 
 	bool setName(char* name);
 	bool setNumOfWorkstations(int numOfWorkStations);
