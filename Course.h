@@ -20,8 +20,8 @@ private:
     double weight;
     Lecturer* lecturer;					//a pointer to 1 Lecturer - assuming 1 lecturer per course
 	Practitioner* practitioner;
-	Student** students;
-	Room* room;
+	Student** students;					//array of pointers to Students attend to said course
+	Room* room;							//a pointer to room in which the course being teached
 	bool mandatory;
 
 public:
@@ -30,7 +30,7 @@ public:
 	Course(Course&& course);
 	~Course();
 
-	const int getStudentsSize() const;
+	int getStudentsSize() const;
 
 	bool setCourseName(char* name);
 	bool setCourseId(int id);
@@ -42,13 +42,13 @@ public:
 	bool setStatus(bool mandatory);
 
 	const char* getCourseName() const;
-	const int getCourseId() const;
-	const double getWeight() const;
-	Lecturer* const getLectorer();
-	Practitioner* const getPratitioner();
+	int getCourseId() const;
+	double getWeight() const;
+	const Lecturer* const getLectorer();
+	const Practitioner* const getPratitioner();
 	Student*const* const getStudentsList();
-	Student* const getStudent(const char* id);
-	Room* const getRoom();
+	const Student* const getStudent(const char* id);
+	const Room* const getRoom();
 	bool isMandatory();
 
 	bool addStudent(Student* student);

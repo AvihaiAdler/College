@@ -3,8 +3,9 @@
 
 class Room
 {
-private:
+public:
 	enum class eRoomType { regular_class, lab, auditorium };
+private:
 	int roomNumber, num_of_seats;
 	eRoomType roomType;
 
@@ -14,8 +15,8 @@ public:
 	Room(Room&& room);
 	~Room();
 
-	const int getRoomNUmber() const;
-	const int getNumOfSeats() const;
+	int getRoomNUmber() const;
+	int getNumOfSeats() const;
 	const eRoomType getRoomType() const;
 
 	bool setRoomNumber(int roomNumber);

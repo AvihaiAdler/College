@@ -7,13 +7,16 @@
 class EmployedStudent : public Student, public Worker
 {
 private:
-	int pointsDischarge;
+	int pointsDischarge;	//points the employed gets for his employement if any (e.g. student who's also a tester for exesices gets a point or to off)
 
 public:
-	EmployedStudent(int points);
+	EmployedStudent(const Student& student, const Worker& worker, int points);
 	EmployedStudent(const EmployedStudent& other) = delete;
 	EmployedStudent(EmployedStudent&& employedStudent);
-	~EmployedStudent();
+	virtual ~EmployedStudent();
+
+	int getPoint() const;
+	void setPoints(const int points);
 
 	friend std::ostream& operator<<(std::ostream& o, const EmployedStudent& eStudent);
 };

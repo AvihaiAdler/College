@@ -6,7 +6,7 @@
 class Lecturer : public EducationStaff
 {
 public:
-	Lecturer();
+	Lecturer(const EducationStaff& ed);
 	Lecturer(const Lecturer& other) = delete;
 	Lecturer(Lecturer&& lecturer);
 	~Lecturer();

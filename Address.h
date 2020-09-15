@@ -17,7 +17,7 @@ public:
 
 	const char* getCity() const;
 	const char* getStreet() const;
-	const int getHouseNumber() const;
+	int getHouseNumber() const;
 
 	bool setCity(const char* city);
 	bool setStreet(const char* street);

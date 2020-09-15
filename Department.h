@@ -5,8 +5,9 @@
 
 class Department
 {
+public:
+	enum class eDepartmentName { electrical_engineering, mechanical_engineering, software_engineering, medical_engineering };
 private:
-	enum class eDepartmentName {electrical_engineering, mechanical_engineering, software_engineering, medical_engineering};
 	eDepartmentName name;
 
 	/*Physical values:*/
@@ -22,11 +23,11 @@ private:
 	int studentsSize;
 
 	int id;
-	Course* courses;			//Course cannot live outside Department (array of class Courses)
-	Lecturer* headOfDepartment;
-	Lecturer** lecturers;
-	Practitioner** practitioners;
-	Student** students;	
+	Course* courses;				//array of Courses
+	Lecturer* headOfDepartment;		//a pointer to a lecturer who act as the head of department
+	Lecturer** lecturers;			//array of pointers of lecturers belong to said department
+	Practitioner** practitioners;	//array of pointers of practitioners belong to said department
+	Student** students;				//array of pointers of students belong to said department
 
 public:
 	Department(eDepartmentName name, int id, int coursesSize = 0, int lecturersSize = 0, int pracitionersSize = 0, int studentsSize = 0); //init Capacity - trasparent
@@ -34,10 +35,10 @@ public:
 	Department(Department&& department);
 	~Department();
 
-	const int getCoursesSize() const;
-	const int getLecturersSize() const;
-	const int getPractitionersSize() const;
-	const int getStudentsSize() const;
+	int getCoursesSize() const;
+	int getLecturersSize() const;
+	int getPractitionersSize() const;
+	int getStudentsSize() const;
 
 	const eDepartmentName getDepartmentName() const;
 	const int getId() const;
@@ -54,12 +55,12 @@ public:
 	bool setPractitionersList(Practitioner** practitioners);
 	bool setStudentsList(Student** students);
 
-	Course* const getCourse(const char* courseName);	
-	Course* const getCourse(int id);
-	Student* const getStudent(const char* id);
-	Worker* const getWorker(const char* name);		//-- get to every type
+	Course& const getCourse(const char* courseName);	
+	Course& const getCourse(int id);
+	Student& const getStudent(const char* id);
+	Worker& const getWorker(const char* name);		//-- get to every type
 
-	bool addCourse(Course course);
+	bool addCourse(const Course& course);
 	bool deleteCourse(int id);
 
 	bool addLecturer(Lecturer* lecturer);
