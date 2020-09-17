@@ -8,6 +8,8 @@ class Department;
 
 class Student : public Person
 {
+public:
+	enum class eCourse { passedCourse, presentCourse, futureCourse };
 private:
 	/*Physical size:*/
 	int pastCoursesCapacity;
@@ -23,11 +25,14 @@ private:
 	Course** pastCourses, **presentCourses, **futureCourses;	//array of courses
 	double average;
 
+	double calculateAverage();
+	bool resizeCourses(Course** courses, eCourse course, int size);
+	bool setCoursesList(Course** courses);
 public:
 	Student(const Person& person, Department* department, int pastCoursesSize = 0, int presentCoursesSize = 0, int futureCoursesSize = 0); //init all physical sizes (transparent to the user)
 	Student(const Student& other) = delete;
 	Student(Student&& student);
-	~Student();
+	virtual ~Student();
 
 	int getPastCoursesSize() const;
 	int getPresentcoursesSize() const;
@@ -40,21 +45,13 @@ public:
 	double getAverage() const;
 
 	bool setDepartment(Department* department);
-	bool setPastCourses(Course** pastCourses);
-	bool setPresentCourses(Course** presentCourses);
-	bool setFutureCourses(Course** futureCourses);
 
-/*	bool addCourse(Course** coursesList, Course* course);    
-	bool deleteCourse(Course** coursesList, int id);	*/	
+	bool addCourse(Course* course, eCourse list);  
+	bool deleteCourse(int id, eCourse list);	
 
-	virtual const Student& operator=(const Student& other);
 	bool operator==(const Student& other);
 	bool operator!=(const Student& other);
 	friend std::ostream& operator<<(std::ostream& o, const Student& student);
-
-private:
-	double calculateAverage();
-
 };
 
 #endif // !__STUDENT_H

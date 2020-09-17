@@ -35,6 +35,13 @@ private:
 	Student** students;					//array of Students
 	Room* rooms;						//array of Rooms
 	
+	//Use only in copy c'tor
+	bool setWorkersList(Worker** workers);
+	bool setLecturersList(Lecturer** lecturers);
+	bool setPractitionersList(Practitioner** practitioners);
+	bool setStudentsList(Student** students);
+	bool setDepartmentsList(Department** departments);
+	bool setRoomsList(Room** rooms);
 public:
 	College(const char* name, const char* phonenumber, const Address& address, int departmentsSize = 0, int workersSize = 0, int lecturersSize = 0, int practitionersSize = 0, int StudentsSize = 0, int roomsSize = 0);	//init Capacity
 	College(College& other);
@@ -74,11 +81,11 @@ public:
 
 	Lecturer& getLecturer(const char* id);	
 	bool addLecturer(const Lecturer& lecturer);					//This method should add the Lecturer to Lecturer** and to Worker**
-	bool deleteLecturer(const char* id);					//This method should delete the Lecturer from Lecturer** and from Worker**
+	bool deleteLecturer(const char* id);						//This method should delete the Lecturer from Lecturer** and from Worker**
 
 	Practitioner& getPractitioner(const char* id);	
-	bool addPractitioner(const Practitioner& practitioner);				//This method should add the Practitioner to Practitioner** and to Worker**
-	bool deletePractitioner(const char* id);						//This method should delete the Practitoner from Practitioner** and from Worker**
+	bool addPractitioner(const Practitioner& practitioner);		//This method should add the Practitioner to Practitioner** and to Worker**
+	bool deletePractitioner(const char* id);					//This method should delete the Practitoner from Practitioner** and from Worker**
 
 	Student& getStudent(const char* id);		
 	bool addStudent(const Student& student);
@@ -93,12 +100,12 @@ public:
 
 private:
 	//Don't forget to increament the respective size by 1 and delete[] the old list -- there's no set*Size() it's your responsibility to manage *Size
-	bool resizedepartmentList();
-	bool resizeWorkersList();
-	bool resizeLecturersList();
-	bool resizePractitonersList();
-	bool resizeStudentsList();
-	bool resizeRooms();
+	bool resizedepartmentList(int size);
+	bool resizeWorkersList(int size);
+	bool resizeLecturersList(int size);
+	bool resizePractitonersList(int size);
+	bool resizeStudentsList(int size);
+	bool resizeRooms(int size);
 };
 
 #endif

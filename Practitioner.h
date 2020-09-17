@@ -18,7 +18,6 @@ public:
 	
 	bool setResponsibleLectorer(const Lecturer* lecturer);
 
-	const Practitioner& operator=(const Practitioner& other);
 	friend std::ostream& operator<<(std::ostream& o, const Practitioner& p);
 };
 

@@ -13,7 +13,7 @@ public:
 	EmployedStudent(const Student& student, const Worker& worker, int points);
 	EmployedStudent(const EmployedStudent& other) = delete;
 	EmployedStudent(EmployedStudent&& employedStudent);
-	virtual ~EmployedStudent();
+	~EmployedStudent();
 
 	int getPoint() const;
 	void setPoints(const int points);
