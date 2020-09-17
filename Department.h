@@ -29,6 +29,10 @@ private:
 	Practitioner** practitioners;	//array of pointers of practitioners belong to said department
 	Student** students;				//array of pointers of students belong to said department
 
+	//Use only in copy c'tor
+	bool setLecturersList(Lecturer** lecturers);
+	bool setPractitionersList(Practitioner** practitioners);
+	bool setStudentsList(Student** students);
 public:
 	Department(eDepartmentName name, int id, int coursesSize = 0, int lecturersSize = 0, int pracitionersSize = 0, int studentsSize = 0); //init Capacity - trasparent
 	Department(const Department& other);
@@ -51,9 +55,6 @@ public:
 	bool setName(const eDepartmentName name);
 	bool setHeadOfDepartment(Lecturer* lecturer);
 	bool setCoursesList(Course* courses);
-	bool setLecturersList(Lecturer** lecturers);
-	bool setPractitionersList(Practitioner** practitioners);
-	bool setStudentsList(Student** students);
 
 	Course& const getCourse(const char* courseName);	
 	Course& const getCourse(int id);
@@ -77,15 +78,14 @@ public:
 
 	const Department& operator=(const Department& other);
 	const Course& operator[](int courseId) const;
-	const Course& operator[](const char* courseName) const;
 	friend std::ostream& operator<<(std::ostream& o, const Department& other);
 
 private:
 	bool setId(int id);
-	bool resizeCourses();
-	bool resizeLecturers();
-	bool resizePractitioners();
-	bool resizeStudents();
+	bool resizeCourses(int size);
+	bool resizeLecturers(int size);
+	bool resizePractitioners(int size);
+	bool resizeStudents(int size);
 };
 
 

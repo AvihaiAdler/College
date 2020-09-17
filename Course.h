@@ -24,6 +24,10 @@ private:
 	Room* room;							//a pointer to room in which the course being teached
 	bool mandatory;
 
+	bool resizeStudents(int size);
+
+	//Use only in copy c'tor
+	bool setStudentsList(Student** students);
 public:
 	Course(const char* courseName, int courseId, double weight, const Lecturer* lecturer, const Practitioner* practitioner, int studentsSize = 0, Room* room = nullptr, bool mandatory = false);		//init capacity (trasparent)
 	Course(const Course& other);
@@ -37,14 +41,13 @@ public:
 	bool setWeight(double weight);
 	bool setLectorer(Lecturer* lecturer);
 	bool setPractitoner(Practitioner* practitioner);
-	bool setStudentsList(Student** students);
 	bool setRoom(Room* room);
 	bool setStatus(bool mandatory);
 
 	const char* getCourseName() const;
 	int getCourseId() const;
 	double getWeight() const;
-	const Lecturer* const getLectorer();
+	const Lecturer* const getLectuorer();
 	const Practitioner* const getPratitioner();
 	Student*const* const getStudentsList();
 	const Student* const getStudent(const char* id);
@@ -57,11 +60,8 @@ public:
 	const Course& operator=(const Course& other);
 	void operator+(const Student& student);
 	void operator-(const Student& student);
-	const Student& operator[](const int studentId) const;
+	const Student& operator[](const char* studentId) const;
 	friend std::ostream& operator<<(std::ostream& o, const Course& course);
-
-private:
-	bool resizeStudents();
 };
 
 #endif // !__COURSE_H

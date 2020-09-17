@@ -15,6 +15,7 @@ private:
 	char phoneNumber[PHONE_NUMBER_SIZE];
 	Address address;
 
+	bool setId(const char* id);
 public:
 	Person(const char* id, const char* fullName, int age, const char* phoneNumber, const Address& address);
 	Person(const Person& person) = delete;
@@ -32,14 +33,9 @@ public:
 	bool setPhoneNumber(const char* phoneNumber);
 	bool setAddress(const Address& address);
 
-	virtual const Person& operator=(const Person& other);
 	bool operator==(const Person& other);
 	bool operator!=(const Person& other);
 	friend std::ostream& operator<<(std::ostream& o, const Person& person);
-
-private:
-	bool setId(const char* id);
-
 };
 
 #endif

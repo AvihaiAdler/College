@@ -12,6 +12,7 @@ private:
 	eRole role;
 	double salary, seniority;
 
+	bool setWorkerId(int workerId);
 public:
 	Worker(const Person& person, const eRole& role, int workerId, double salary, double seniority);
 	Worker(const Worker& other) = delete;
@@ -27,11 +28,7 @@ public:
 	bool setSalary(double salary);
 	bool setSeniority(double seniority);
 
-	virtual const Worker& operator=(const Worker& other);
 	friend std::ostream& operator<<(std::ostream& o, const Worker& worker);
-
-private:
-	bool setWorkerId(int workerId);
 };
 
 #endif

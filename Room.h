@@ -11,9 +11,7 @@ private:
 
 public:
 	Room(const eRoomType type, int roomNumber, int num_of_seats);
-	Room(Room& other);
-	Room(Room&& room);
-	~Room();
+	virtual ~Room();
 
 	int getRoomNUmber() const;
 	int getNumOfSeats() const;
